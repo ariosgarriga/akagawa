@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akagawa LLC</title>
+<meta name="description" content="Akagawa LLC — general distribution and sourcing, with a growing e-commerce presence.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F1F0EB;
+    --surface: #FBFAF7;
+    --ink: #1D1B18;
+    --ink-soft: #5B584F;
+    --ink-faint: #8C887C;
+    --accent: #AE3729;
+    --accent-deep: #7C2119;
+    --accent-soft: rgba(174, 55, 41, 0.09);
+    --line: #D9D5C9;
+    --line-strong: #C4BFAE;
+    --shadow: 0 24px 48px -32px rgba(29, 27, 24, 0.35);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #14161B;
+      --surface: #1B1E24;
+      --ink: #ECE8DE;
+      --ink-soft: #B0AC9E;
+      --ink-faint: #726E63;
+      --accent: #E1614F;
+      --accent-deep: #F08272;
+      --accent-soft: rgba(225, 97, 79, 0.13);
+      --line: #33363D;
+      --line-strong: #454852;
+      --shadow: 0 24px 48px -28px rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #14161B;
+    --surface: #1B1E24;
+    --ink: #ECE8DE;
+    --ink-soft: #B0AC9E;
+    --ink-faint: #726E63;
+    --accent: #E1614F;
+    --accent-deep: #F08272;
+    --accent-soft: rgba(225, 97, 79, 0.13);
+    --line: #33363D;
+    --line-strong: #454852;
+    --shadow: 0 24px 48px -28px rgba(0, 0, 0, 0.6);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Zen Kaku Gothic New", "Hiragino Sans", "Noto Sans", sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: "Zen Old Mincho", "Noto Serif JP", serif;
+    font-weight: 600;
+    line-height: 1.2;
+    text-wrap: balance;
+    margin: 0;
+    color: var(--ink);
+  }
+
+  a { color: inherit; }
+
+  img, svg { max-width: 100%; }
+
+  .wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 5vw, 64px);
+  }
+
+  /* ---------- Nav ---------- */
+  header.nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px clamp(20px, 5vw, 64px);
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+
+  .wordmark {
+    font-family: "Zen Old Mincho", serif;
+    font-size: 1.15rem;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  .mark {
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+    background: var(--accent);
+    flex: none;
+  }
+
+  nav.links {
+    display: flex;
+    gap: clamp(18px, 3vw, 36px);
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  nav.links a {
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 2px;
+  }
+
+  nav.links a:hover { color: var(--ink); }
+
+  .theme-toggle {
+    border: 1px solid var(--line-strong);
+    background: transparent;
+    color: var(--ink-soft);
+    font-family: inherit;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    padding: clamp(64px, 12vw, 128px) 0 clamp(56px, 9vw, 96px);
+    overflow: hidden;
+  }
+
+  .hero .wrap {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.62fr);
+    gap: clamp(28px, 5vw, 56px);
+    align-items: end;
+  }
+
+  .eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 22px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .hero h1 {
+    font-size: clamp(2.6rem, 6vw, 4.4rem);
+    letter-spacing: -0.01em;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .hero-lede {
+    color: var(--ink-soft);
+    font-size: clamp(1.02rem, 1.6vw, 1.18rem);
+    max-width: 40ch;
+    margin: 22px 0 0;
+  }
+
+  .hero-cta {
+    margin-top: 34px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 26px;
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 0.92rem;
+    letter-spacing: 0.02em;
+    border: 1px solid transparent;
+    transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #FBF8F2;
+  }
+  .btn-primary:hover { background: var(--accent-deep); transform: translateY(-1px); }
+
+  .btn-ghost {
+    border-color: var(--line-strong);
+    color: var(--ink-soft);
+  }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  .hero-panel {
+    border: 1px solid var(--line);
+    background: var(--surface);
+    padding: 26px 26px 22px;
+    box-shadow: var(--shadow);
+  }
+
+  .hero-panel .k {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .hero-panel .v {
+    font-family: "Zen Old Mincho", serif;
+    font-size: 1.55rem;
+    margin-top: 4px;
+    color: var(--ink);
+  }
+
+  .hero-panel .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 14px 0;
+    border-top: 1px solid var(--line);
+  }
+  .hero-panel .row:first-of-type { border-top: none; padding-top: 0; }
+
+  .river {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.55;
+  }
+
+  /* ---------- Section shell ---------- */
+  section { padding: clamp(56px, 9vw, 96px) 0; border-top: 1px solid var(--line); }
+
+  .section-head {
+    display: grid;
+    grid-template-columns: minmax(0, 0.5fr) minmax(0, 1fr);
+    gap: 32px;
+    margin-bottom: clamp(36px, 6vw, 56px);
+    align-items: baseline;
+  }
+
+  .section-head h2 {
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+  }
+
+  .section-head .lede {
+    color: var(--ink-soft);
+    max-width: 52ch;
+  }
+
+  /* ---------- Pillars ---------- */
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+
+  .pillar {
+    background: var(--surface);
+    padding: 30px 26px 32px;
+  }
+
+  .pillar .num {
+    font-family: "Zen Old Mincho", serif;
+    color: var(--accent);
+    font-size: 0.95rem;
+  }
+
+  .pillar h3 {
+    font-size: 1.18rem;
+    margin: 16px 0 10px;
+  }
+
+  .pillar p {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  /* ---------- About ---------- */
+  .about {
+    display: grid;
+    grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
+    gap: clamp(32px, 6vw, 72px);
+  }
+
+  .about-name {
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    color: var(--ink-faint);
+  }
+
+  .about-name b {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .about-copy p {
+    margin: 0 0 20px;
+    color: var(--ink-soft);
+  }
+
+  .about-copy p:first-child {
+    color: var(--ink);
+    font-size: 1.08rem;
+  }
+
+  .glyph-row {
+    display: flex;
+    gap: 22px;
+    margin-top: 28px;
+  }
+
+  .glyph {
+    text-align: center;
+  }
+
+  .glyph .g {
+    font-family: "Zen Old Mincho", serif;
+    font-size: 1.4rem;
+    color: var(--accent);
+    border: 1px solid var(--line-strong);
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 8px;
+  }
+
+  .glyph .cap {
+    font-size: 0.68rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.04em;
+  }
+
+  /* ---------- Contact ---------- */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.62fr);
+    gap: clamp(28px, 5vw, 64px);
+  }
+
+  .contact-card {
+    border: 1px solid var(--line);
+    background: var(--surface);
+    padding: 34px 32px;
+  }
+
+  .contact-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+  }
+
+  .contact-card p {
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+    margin: 0 0 26px;
+  }
+
+  .contact-card p a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: var(--line-strong);
+    text-underline-offset: 3px;
+  }
+  .contact-card p a:hover { color: var(--accent); text-decoration-color: var(--accent); }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .field label {
+    font-size: 0.72rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .field label .opt {
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .field input,
+  .field textarea {
+    font-family: inherit;
+    font-size: 0.98rem;
+    color: var(--ink);
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--line-strong);
+    padding: 8px 2px;
+    resize: vertical;
+  }
+
+  .field textarea { min-height: 96px; }
+
+  .field input:focus,
+  .field textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  .contact-form .btn {
+    align-self: flex-start;
+    margin-top: 4px;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-top: 1px solid var(--line);
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 0.95rem;
+  }
+  .contact-link:first-of-type { border-top: none; }
+  .contact-link:hover { color: var(--accent); }
+  .contact-link .arrow { color: var(--ink-faint); transition: transform 0.15s ease, color 0.15s ease; }
+  .contact-link:hover .arrow { color: var(--accent); transform: translateX(3px); }
+
+  .social-list { display: flex; flex-direction: column; }
+
+  /* ---------- Footer ---------- */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 26px 0 34px;
+  }
+
+  .footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+  }
+
+  @media (max-width: 760px) {
+    .hero .wrap { grid-template-columns: 1fr; }
+    .hero-panel { justify-self: start; max-width: 340px; }
+    .section-head { grid-template-columns: 1fr; }
+    .pillars { grid-template-columns: 1fr; }
+    .about { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: minmax(0, 1fr); }
+    nav.links { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-row">
+    <a class="wordmark" href="#top"><span class="mark"></span>Akagawa</a>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">MODE</button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" style="border-top:none;">
+    <svg class="river" viewBox="0 0 1120 520" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M -50 420 C 220 380, 340 470, 560 400 S 900 300, 1180 360"
+            fill="none" stroke="var(--accent)" stroke-width="1" opacity="0.5"/>
+      <path d="M -50 460 C 260 430, 380 500, 600 450 S 920 360, 1180 410"
+            fill="none" stroke="var(--line-strong)" stroke-width="1"/>
+    </svg>
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Akagawa LLC · General Distribution</p>
+        <h1>The right flow of <em>goods</em>,<br>from source to shelf.</h1>
+        <p class="hero-lede">We source and distribute products across retail and e-commerce channels, built on disciplined vetting, direct supplier relationships, and reliable fulfillment.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#contact">Get in touch</a>
+          <a class="btn btn-ghost" href="#about">About the brand</a>
+        </div>
+      </div>
+      <div class="hero-panel">
+        <div class="row">
+          <span class="k">Model</span>
+          <span class="v">Distribution</span>
+        </div>
+        <div class="row">
+          <span class="k">Channels</span>
+          <span class="v">Retail &amp; E-Commerce</span>
+        </div>
+        <div class="row">
+          <span class="k">Based at</span>
+          <span class="v">akagawagroup.com</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>How we work</h2>
+        <p class="lede">Three disciplines back every sourcing decision: vetted suppliers over guesswork, dependable distribution, and compliance without shortcuts.</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar">
+          <span class="num">01</span>
+          <h3>Product Sourcing</h3>
+          <p>Direct relationships with manufacturers and wholesalers, with every product vetted for quality, margin, and consistent supply before it enters the catalog.</p>
+        </div>
+        <div class="pillar">
+          <span class="num">02</span>
+          <h3>Distribution &amp; Fulfillment</h3>
+          <p>Goods move into both traditional retail and e-commerce channels, with logistics built to keep stock flowing and orders on time.</p>
+        </div>
+        <div class="pillar">
+          <span class="num">03</span>
+          <h3>Compliance &amp; Structure</h3>
+          <p>Registered as an LLC, with administrative and compliance processes designed to scale without friction.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="about">
+        <div>
+          <p class="about-name"><b>Aka</b> 赤 — red &nbsp;·&nbsp; <b>Gawa</b> 川 — river</p>
+          <div class="glyph-row">
+            <div class="glyph"><div class="g">赤</div><div class="cap">AKA</div></div>
+            <div class="glyph"><div class="g">川</div><div class="cap">GAWA</div></div>
+          </div>
+        </div>
+        <div class="about-copy">
+          <p>Akagawa —"the red river"— names what we do: keep a steady, well-directed flow of goods, from source to shelf.</p>
+          <p>We're a general distribution operation, registered as an LLC, sourcing products for retail partners and building out our own e-commerce presence. Every product we bring in goes through a vetting process for quality, margin, and reliable supply before it joins the catalog.</p>
+          <p>We're not selling a single house brand — we're selling judgment. The edge is finding the right product, from the right supplier, ahead of the competition.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Let's talk</h2>
+        <p class="lede">For supplier inquiries, retail partnerships, or general questions about the operation.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Direct contact</h3>
+          <p>We reply within 1–2 business days. Prefer email? Write to <a href="mailto:contact@akagawagroup.com">contact@akagawagroup.com</a>.</p>
+          <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="company">Company <span class="opt">(optional)</span></label>
+              <input type="text" id="company" name="company" autocomplete="organization">
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>© <span id="year"></span> Akagawa LLC. All rights reserved.</span>
+    <span>General Distribution · E-Commerce</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  (function () {
+    var toggle = document.getElementById('themeToggle');
+    var root = document.documentElement;
+    var stored = null;
+    try { stored = localStorage.getItem('akagawa-theme'); } catch (e) {}
+    if (stored === 'light' || stored === 'dark') root.setAttribute('data-theme', stored);
+
+    function current() {
+      var attr = root.getAttribute('data-theme');
+      if (attr) return attr;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    toggle.addEventListener('click', function () {
+      var next = current() === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('akagawa-theme', next); } catch (e) {}
+    });
+  })();
+</script>
+
+</body>
+</html>
