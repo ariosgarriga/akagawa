@@ -402,67 +402,7 @@
   .contact-card p {
     color: var(--ink-soft);
     font-size: 0.92rem;
-    margin: 0 0 26px;
-  }
-
-  .contact-card p a {
-    color: var(--ink);
-    text-decoration: underline;
-    text-decoration-color: var(--line-strong);
-    text-underline-offset: 3px;
-  }
-  .contact-card p a:hover { color: var(--accent); text-decoration-color: var(--accent); }
-
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .field {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .field label {
-    font-size: 0.72rem;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-  }
-
-  .field label .opt {
-    text-transform: none;
-    letter-spacing: 0;
-  }
-
-  .field input,
-  .field textarea {
-    font-family: inherit;
-    font-size: 0.98rem;
-    color: var(--ink);
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid var(--line-strong);
-    padding: 8px 2px;
-    resize: vertical;
-  }
-
-  .field textarea { min-height: 96px; }
-
-  .field input:focus,
-  .field textarea:focus {
-    outline: none;
-    border-color: var(--accent);
-  }
-
-  .contact-form .btn {
-    align-self: flex-start;
-    margin-top: 4px;
-    border: none;
-    cursor: pointer;
-    font-family: inherit;
+    margin: 0;
   }
 
   .contact-link {
@@ -617,26 +557,10 @@
       <div class="contact-grid">
         <div class="contact-card">
           <h3>Direct contact</h3>
-          <p>We reply within 1–2 business days. Prefer email? Write to <a href="mailto:contact@akagawagroup.com">contact@akagawagroup.com</a>.</p>
-          <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-            <div class="field">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" autocomplete="name" required>
-            </div>
-            <div class="field">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" autocomplete="email" required>
-            </div>
-            <div class="field">
-              <label for="company">Company <span class="opt">(optional)</span></label>
-              <input type="text" id="company" name="company" autocomplete="organization">
-            </div>
-            <div class="field">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="4" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Send message</button>
-          </form>
+          <p>We reply within 1–2 business days.</p>
+          <a class="contact-link" href="mailto:andres@akagawagroup.com">
+            andres@akagawagroup.com <span class="arrow">→</span>
+          </a>
         </div>
       </div>
     </div>
